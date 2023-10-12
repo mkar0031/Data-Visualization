@@ -1,0 +1,13 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {
+      "url": "data/Production_Total.csv"
+    },
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "Continent", "type": "temporal"},
+      "y": {"field": "Total_production", "type": "quantitative"},
+      "color": {"field": "Continent"} 
+    },
+    "title": "Total Production Over the Years (All Continents)"
+}
