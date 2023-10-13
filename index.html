@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+  
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+  integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css" media="all">
+
+
+</head>
+<body>
+    <div class="page">
+        <h1 style="text-align: center; padding-bottom: 30px;"><u>Global Energy Statistics</u></h1>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p style="text-align: justify; font-size: larger;"> Electricity is the flow of electrical power or charge. Electricity is both a basic part of nature and one of the most widely used forms of energy.
+                    The electricity that we use is a secondary energy source because it is produced by converting primary sources of energy such as coal, natural gas, nuclear energy, solar energy, and wind energy into electrical power. <a href="https://www.eia.gov/energyexplained/electricity/#:~:text=Electricity%20is%20both%20a%20basic,wind%20energy%20into%20electrical%20power."> Reference</a>.
+                </p>
+                <p style="text-align: justify; font-size: larger;">
+                    The following chart shows the percentage of the population of each country that receives electricity.
+                </p>
+            </div>
+        </div>
+
+        <div id="choropleth_map" class="vis-container"></div>
+
+        <div class="pure-g">
+            <div class="pure-u-1-1">
+                <p style="text-align: justify; font-size: larger;">
+                    From  the above map we can see that the African population receives the least amount of electricity. The lowest country is Sudan where only 7.2% of the population receives electricity.
+                </p>
+            </div>
+        </div>
+
+        <h2>Petroleum Consumption </h2>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="idiom2" class="vis-container2">        
+                </div>
+            </div>
+
+            <div class="pure-u-1-2">
+                <div class="description-right" style="text-align: center;">
+                    <p style="text-align: justify; font-size: larger;">
+                        The graph shows the consumption of Petroleum by each continent in <i>Quadrillion British Thermal Unit.</i> 
+                        This data is from the years 1980 till 2021.
+                        <br><br>
+                        It can be seen that North America has been the largest consumer of Petroleum since 1980, with approximately 1500 qBTU consumed. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <h2>Petroleum Production </h2>
+        <div class="pure-g">
+            <div class="pure-u-1-2">
+                <div id="idiom3" class="vis-container2">        
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="description-right" style="text-align: center;">
+                    <p style="text-align: justify; font-size: larger;">
+                        The graph shows the top 5 Petroleum producing countries till 2020.
+                        <br><br>
+                        It can be seen that Angola has been the largest producer of Petroleum, with approximately 1000 qBTU produced. 
+                        <br><br>(Going to add a filter to sort year and rank, not yet done)
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        var map = 'js/energymap.vg.json';
+        vegaEmbed('#choropleth_map', map, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+
+        var vis2 = 'js/barchart.vg.json';
+        vegaEmbed('#idiom2', vis2, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+        
+        var vis3 = 'js/production.vg.json'
+        vegaEmbed('#idiom3', vis3, {"actions": false}).then(function(result) {
+            // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+        }).catch(console.error);
+
+    </script>
+</body>
+</html>
